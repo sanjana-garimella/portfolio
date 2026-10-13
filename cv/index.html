@@ -17,12 +17,11 @@
 
     <header>
       <h1>Sanjana Garimella</h1>
+      <p>MS Data Science candidate, UC San Diego · Applied ML and LLM systems</p>
       <p>
-        <em>Sample CV: organizations, places and dates on this page are placeholders.</em>
-      </p>
-      <p>
-        Springfield, USA ·
-        <a href="https://github.com/sanjana-garimella" target="_blank">GitHub</a>
+        San Diego, CA ·
+        <a href="https://github.com/sanjana-garimella" target="_blank">GitHub</a> ·
+        <a href="https://linkedin.com/in/sanjana--garimella" target="_blank">LinkedIn</a>
       </p>
     </header>
 
@@ -31,18 +30,20 @@
 
       <article>
         <header>
-          <h3>MS in Data Science</h3>
+          <h3>M.S. in Data Science</h3>
           <p>
-            Westbrook University ·
-            <time datetime="2024-09">Sept 2024</time> – <time datetime="2026-06">June 2026</time>
+            Halıcıoğlu Data Science Institute, UC San Diego ·
+            <time datetime="2025-09">Sept 2025</time> – <time datetime="2026-12">Dec 2026</time>
           </p>
         </header>
       </article>
 
       <article>
         <header>
-          <h3>BS in Computer Science</h3>
-          <p>Lakeview Institute of Technology · <time datetime="2022">2022</time></p>
+          <h3>B.Tech in Computer Science</h3>
+          <p>
+            KL University · <time datetime="2019">2019</time> – <time datetime="2023">2023</time>
+          </p>
         </header>
       </article>
     </section>
@@ -52,61 +53,122 @@
 
       <article>
         <header>
-          <h3>Research Intern, Harbor Health Lab</h3>
-          <p>Springfield, USA · <time datetime="2025-06">June 2025</time> – Present</p>
-        </header>
-        <ul>
-          <li>
-            Building a decision-support assistant that pairs synthetic patient data with a
-            rules-based NLP engine.
-          </li>
-          <li>Evaluated the engine against an expert-labeled benchmark of 1,000 synthetic cases.</li>
-        </ul>
-      </article>
-
-      <article>
-        <header>
-          <h3>Software Developer, Northwind Systems</h3>
+          <h3>Student Research Intern, Scripps Research Translational Institute</h3>
           <p>
-            Riverton, USA · <time datetime="2022-07">July 2022</time> –
-            <time datetime="2024-07">July 2024</time>
+            San Diego, CA ·
+            <time datetime="2026-06">June 2026</time> – <time datetime="2026-08">Aug 2026</time>
           </p>
         </header>
         <ul>
-          <li>Built and maintained data pipelines for security vulnerability tracking.</li>
-          <li>Prototyped an automated cloud provisioning tool that won an internal team award.</li>
-          <li>Built monitoring dashboards for production system health.</li>
+          <li>
+            Designed an AI medication-assistant pipeline for antiseizure drug titration, combining
+            LLM-generated synthetic patient data with a hybrid RAG and rules-based decision engine.
+          </li>
+          <li>
+            Validated the rules engine against a physician gold standard on 1,200 synthetic cases:
+            0.984 concordance and 0.976 weighted Cohen's kappa (target 0.80).
+          </li>
+          <li>
+            Benchmarked symptom extraction on a 364-case test suite, where clinical transformers
+            reached perfect rash recall.
+          </li>
         </ul>
       </article>
 
       <article>
         <header>
-          <h3>Machine Learning Intern, Brightline Analytics</h3>
-          <p><time datetime="2021-06">June 2021</time> – <time datetime="2021-09">Sept 2021</time></p>
+          <h3>Software Developer, IBM</h3>
+          <p>
+            Bangalore, India ·
+            <time datetime="2023-06">June 2023</time> – <time datetime="2025-06">June 2025</time>
+          </p>
         </header>
         <ul>
-          <li>Built an image segmentation pipeline using transfer learning on a small labeled dataset.</li>
+          <li>
+            Prototyped an LLM-based multi-cloud provisioning tool that cut provisioning cost by about
+            40%, winning IBM's People's Choice Award.
+          </li>
+          <li>Built an ML anomaly-detection model that cut false positives by 10% in security-incident scanning.</li>
+          <li>
+            Automated security-pipeline deployment and power monitoring with Kubernetes, Docker and
+            Grafana dashboards.
+          </li>
         </ul>
       </article>
     </section>
 
     <section>
       <h2>Projects</h2>
-      <ul>
-        <li><strong>Carbon-aware training analyzer</strong>: estimates the emissions of ML training jobs.</li>
-        <li><strong>LLM inference benchmark</strong>: compares latency and throughput across inference engines.</li>
-        <li><strong>Clinical NLP pipeline</strong>: extracts diagnosis timelines from case reports.</li>
-        <li><strong>Big data pipeline</strong>: processes billions of trip records with Dask and Spark.</li>
-      </ul>
+
+      <article>
+        <header>
+          <h3>Doppelgamer: LLM inference benchmarking</h3>
+          <p><time datetime="2026-05">May 2026</time> – <time datetime="2026-07">July 2026</time></p>
+        </header>
+        <ul>
+          <li>
+            Framework that runs seeded multi-turn games (chess, Othello, Connect Four) against
+            HuggingFace and vLLM engines.
+          </li>
+          <li>
+            Showed vLLM cutting mean time-to-first-token from 3.63 to 2.06 ms and raising throughput
+            from 114.7 to 593.5 QPS.
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <header>
+          <h3>MediRare: Clinical NLP research, AISC San Diego</h3>
+          <p><time datetime="2026-03">Mar 2026</time> – Present</p>
+        </header>
+        <ul>
+          <li>Built a PubMedBERT-based extractor for misdiagnosis sequences in PubMed abstracts.</li>
+          <li>Raised SLE precision from 0.66 to 0.73 by fixing three classes of false positives.</li>
+          <li>Lead a cross-institutional research team of up to 6.</li>
+        </ul>
+      </article>
+
+      <article>
+        <header>
+          <h3>GridGreen: carbon-aware ML training</h3>
+          <p>
+            <time datetime="2026-04">Apr 2026</time> – <time datetime="2026-06">June 2026</time> ·
+            DataHacks 2026 Cloud Track Winner
+          </p>
+        </header>
+        <ul>
+          <li>
+            Built the Snowflake and AWS SageMaker parts of a copilot that routes training jobs to
+            lower-carbon compute windows.
+          </li>
+          <li>Cut estimated CO2 by up to 37%, validated against CodeCarbon across 5 US grid regions.</li>
+        </ul>
+      </article>
+
+      <article>
+        <header>
+          <h3>MediDB: clinical decision-support system</h3>
+          <p><time datetime="2026-01">Jan 2026</time> – <time datetime="2026-03">Mar 2026</time></p>
+        </header>
+        <ul>
+          <li>
+            Four-database system (PostgreSQL, Neo4j, Qdrant, MongoDB) with semantic search over
+            50,000+ adverse-event reports, served in a Streamlit demo.
+          </li>
+        </ul>
+      </article>
     </section>
 
     <section>
       <h2>Skills</h2>
       <ul>
-        <li><strong>Languages:</strong> Python, SQL, C++</li>
-        <li><strong>ML / DL:</strong> PyTorch, scikit-learn, pandas, NumPy</li>
-        <li><strong>Databases:</strong> PostgreSQL, Neo4j, MongoDB</li>
-        <li><strong>Data &amp; cloud:</strong> Dask, Spark, AWS</li>
+        <li><strong>Languages:</strong> Python, SQL, C++, Java</li>
+        <li><strong>ML / DS:</strong> scikit-learn, PyTorch, Hugging Face Transformers, XGBoost, pandas, NumPy</li>
+        <li><strong>NLP / LLMs:</strong> vLLM, RAG, PubMedBERT, FastAPI, Streamlit, MCP</li>
+        <li><strong>Databases:</strong> PostgreSQL, Neo4j, MongoDB, Qdrant</li>
+        <li><strong>Data &amp; cloud:</strong> AWS, Snowflake, Spark, Dask, PyArrow</li>
+        <li><strong>Tools:</strong> Git, Docker, Grafana, MPI</li>
       </ul>
     </section>
   </body>
