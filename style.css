@@ -1,7 +1,10 @@
 :root {
   --color-accent: oklch(55% 0.13 250);
-  --color-border: oklch(80% 3% 200);
+  /* A semi-transparent, moderately dark color adapts to both light and
+     dark mode better than a fixed light gray would. */
+  --color-border: oklch(50% 10% 200 / 40%);
   accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
 
 body {
@@ -9,6 +12,13 @@ body {
      and use the OS’s UI font as the website font
    */
   font: 100%/1.5 system-ui;
+
+  /* Explicitly tie background/text to the system colors so the page
+     repaints immediately when color-scheme is changed at runtime by
+     the theme switcher (some browsers don't repaint the implicit
+     canvas background on a dynamic color-scheme change otherwise). */
+  background-color: canvas;
+  color: canvastext;
 
   /* Step 1: keep lines readable and centered, with a gutter on small screens */
   max-width: 100ch;
@@ -27,6 +37,7 @@ nav {
   flex-wrap: wrap; /* wrap links on very narrow screens instead of overflowing */
   margin-bottom: 2em;
   border-bottom: 1px solid var(--color-border);
+  padding-inline-end: 8em; /* leave room for the color-scheme switcher */
 
   ul,
   li {
@@ -49,14 +60,26 @@ nav {
   a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    /* Mix with the canvas color instead of a fixed lightness so the
+       hover background stays legible in dark mode too. */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
   }
+}
+
+/* Step 4: dark mode switcher */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
 }
 
 /* Step 3: contact form */
 input,
 textarea,
-button {
+button,
+select {
   font: inherit;
   min-width: 0; /* let fields shrink below their default size on narrow screens */
 }
