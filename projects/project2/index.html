@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 2 Report | Sanjana Garimella</title>
+    <style>
+      html {
+        color-scheme: light;
+        background: canvas;
+        color: canvastext;
+      }
+      body {
+        margin: 0;
+        background: canvas;
+        color: canvastext;
+        font: 17px/1.65 -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+        counter-reset: figure;
+      }
+      header,
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      header {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid color-mix(in oklch, canvastext 15%, canvas);
+      }
+      a {
+        color: light-dark(#1a5fb4, #8ab4f8);
+      }
+      .course {
+        margin: 1.5rem 0 0.25rem;
+        color: color-mix(in oklch, canvastext 62%, canvas);
+      }
+      h1 {
+        margin: 0;
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+      .byline {
+        margin: 0.5rem 0 0;
+        color: color-mix(in oklch, canvastext 62%, canvas);
+      }
+      h2 {
+        margin: 2.5rem 0 0.75rem;
+        font-size: 1.4rem;
+        line-height: 1.3;
+      }
+      h4 {
+        margin: 1.5rem 0 0.5rem;
+        font-size: 1.05rem;
+      }
+      /* Section headings match the chart colors */
+      h2.for {
+        color: light-dark(#b0362a, #f28b7d);
+      }
+      h2.against {
+        color: light-dark(#22709e, #7cb9e8);
+      }
+      .legend {
+        color: color-mix(in oklch, canvastext 62%, canvas);
+        font-size: 0.95rem;
+      }
+      main {
+        padding-bottom: 4rem;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+      .theme {
+        font-size: 0.9rem;
+        color: color-mix(in oklch, canvastext 62%, canvas);
+      }
+      .theme select {
+        font: inherit;
+      }
+
+      /* Figures are wider than the text so the charts stay legible */
+      figure {
+        width: min(62rem, calc(100vw - 32px));
+        margin: 1rem 0 1.5rem 50%;
+        transform: translateX(-50%);
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid color-mix(in oklch, canvastext 15%, canvas);
+      }
+      figcaption {
+        counter-increment: figure;
+        max-width: 42rem;
+        margin: 0.5rem auto 0;
+        font-size: 0.9rem;
+        color: color-mix(in oklch, canvastext 62%, canvas);
+      }
+      figcaption::before {
+        content: "Figure " counter(figure) ": ";
+        font-weight: bold;
+      }
+
+      .decisions {
+        padding-left: 1.25rem;
+      }
+      .decisions li {
+        margin-bottom: 1.25rem;
+      }
+      .decisions p {
+        margin: 0.35rem 0 0;
+      }
+      .score {
+        color: color-mix(in oklch, canvastext 62%, canvas);
+      }
+      .reflection p {
+        margin: 0 0 1rem;
+      }
+    </style>
+    <script>
+      try {
+        if ('colorScheme' in localStorage) {
+          document.documentElement.style.colorScheme = localStorage.colorScheme;
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="top">
+        <a href="../">Back to projects</a>
+        <label class="theme">
+          Theme:
+          <select>
+            <option value="light dark">Automatic</option>
+            <option value="light" selected>Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+      </div>
+      <p class="course">DSC 209R, Project 2</p>
+      <h1>Persuasive or Deceptive Visualization?</h1>
+      <p class="byline">Sanjana Garimella, sagarimella@ucsd.edu</p>
+    </header>
+
+    <main>
+      <h2>Proposition: Climate-related disasters are becoming dramatically more frequent.</h2>
+      <p class="legend">Each design decision is scored from −2 (fully deceptive) to +2 (fully earnest).</p>
+
+      <section>
+        <h2 class="for">FOR the Proposition</h2>
+
+        <figure>
+          <a href="final_for.png"><img
+            src="final_for.png"
+            alt="Two charts. Left: bar chart of climate-related disasters recorded worldwide each year, rising from 94 in 1980 to 360 in 2024. Right: area chart of the cumulative number of disasters since 1980, reaching 12,061 in 2024."
+          /></a>
+          <figcaption>
+            Left: climate-related disasters recorded worldwide each year, 1980 to 2024.
+            Right: running total of the same yearly counts since 1980.
+            Data: IMF Climate Change Indicators Dashboard (EM-DAT), summed across all reporting countries.
+          </figcaption>
+        </figure>
+
+        <h4>Design decisions and rationale</h4>
+
+        <ul class="decisions">
+          <li>
+            <p><strong>Truncated y-axis</strong> <span class="score">(score: −1.5)</span></p>
+            <p>The number of disasters went from 94 to 360 a year, a 283% increase. That's a real increase.</p>
+            <p>Starting at 60 instead of 0 cuts off the bottom 60 units of every bar, so the same increase visually reads as a much steeper jump: readers judge bar height ratios, not axis labels. Considered a 0-based axis, but it undercut the dramatic framing, which is the point: this is a persuasion choice, not a neutral one. Honest alternative: 0-based axis with the 283% annotated directly, or a log scale if relative growth is the real point.</p>
+          </li>
+          <li>
+            <p><strong>Cumulative running total</strong> <span class="score">(score: −1)</span></p>
+            <p>This chart adds up every disaster since 1980, reaching 12,061. The issue is that a running total naturally keeps increasing as new disasters occur. It doesn't show whether the number of disasters in each year is actually increasing, staying the same, or falling.</p>
+            <p>Pairs a big, always-climbing number (12,061) next to the bar chart to imply unstoppable momentum, but a cumulative sum can’t decrease regardless of whether yearly counts rise, flatten, or fall, so it hides the frequency trend. Considered a 5-year rolling average instead, which shows the real trend without manufacturing false momentum.</p>
+          </li>
+          <li>
+            <p><strong>Real IMF and EM-DAT data, checked for double-counting</strong> <span class="score">(score: +1.5)</span></p>
+            <p>The numbers come from IMF and EM-DAT data, so the figures themselves aren't made up. I also checked for double-counting from regional totals like Europe, and their contribution was under 1% of the total. That doesn't explain the trend.</p>
+            <p>Sourced data borrows institutional credibility, and ruling out regional double-counting (&lt;1%) closes an easy objection in advance. But source credibility says nothing about framing credibility: real numbers can still be displayed deceptively, which is the core tension here.</p>
+          </li>
+          <li>
+            <p><strong>Headline and panel titles</strong> <span class="score">(score: −0.5)</span></p>
+            <p>“Nearly Quadrupled” uses a specific, checkable multiplier that feels rigorous while still being the most dramatic accurate phrasing of 283%. “And they keep piling up” primes readers to see the cumulative chart as acceleration rather than a simple running sum.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="against">AGAINST the Proposition</h2>
+
+        <figure>
+          <a href="final_against.png"><img
+            src="final_against.png"
+            alt="Two charts. Left: line chart of climate-related disasters recorded worldwide each year from 2000 to 2024 on a 0 to 600 axis, staying near an average of 341 per year. Right: line chart of people affected by disasters from 1980 to 2023, peaking at 657 million in 2002 and falling to about 89 million in 2023."
+          /></a>
+          <figcaption>
+            Left: climate-related disasters recorded worldwide each year, 2000 to 2024, with the 2000 to 2024 average.
+            Right: people affected by disasters worldwide each year, 1980 to 2023.
+            Data: IMF Climate Change Indicators Dashboard (EM-DAT), summed across all reporting countries.
+          </figcaption>
+        </figure>
+
+        <h4>Design decisions and rationale</h4>
+
+        <ul class="decisions">
+          <li>
+            <p><strong>Selective time window (2000 to 2024)</strong> <span class="score">(score: −1)</span></p>
+            <p>This chart only covers 2000 to 2024, leaving out the rise during the 1980s and 1990s. The numbers, 362 versus 360, make the trend look flat, but that depends on the time period being shown.</p>
+            <p>Cutting 1980-1999 removes the steepest rise, so 362 vs. 360 looks flat: not altered data, just omitted years. Mirror of the FOR axis trick, compressing time instead of scale. Honest alternative: show the full 1980-2024 range, or disclose why a shorter window was chosen.</p>
+          </li>
+          <li>
+            <p><strong>Tall y-axis (0 to 600)</strong> <span class="score">(score: −0.5)</span></p>
+            <p>The y-axis also goes up to 600, making the year-to-year changes harder to notice.</p>
+            <p>Stretching range to 600 when data sits around 300-400 flattens the visible slope, making real swings look like noise. Same manipulation as the FOR truncated axis, opposite direction. Considered tightening to the actual data range, but that would’ve undercut the flat story.</p>
+          </li>
+          <li>
+            <p><strong>Switching the metric to people affected</strong> <span class="score">(score: −1)</span></p>
+            <p>This chart looks at people affected rather than the number of disasters. The figure peaked at 657 million in 2002 and dropped to around 89 million by 2023. Those numbers matter, but they answer a different question. Fewer people being affected doesn't necessarily mean fewer disasters are happening. The spike in people affected in 2002 also lines up with major droughts and floods in India and China that year.</p>
+            <p>The strongest trick here: not an axis manipulation but a question substitution. People affected depends on population density and infrastructure as much as disaster frequency, so it can drop while event counts rise. The 2002 spike (India/China droughts and floods) shows how volatile and non-equivalent this metric is. Honest alternative: show both metrics over the full 1980-2024 range and flag that they can move independently.</p>
+          </li>
+          <li>
+            <p><strong>Headline and panel titles</strong> <span class="score">(score: −1)</span></p>
+            <p>“Leveled Off” implies a stopped rise that’s really just a chosen window. “Hurt Fewer People” smuggles the metric swap in as if it still answers the frequency question. “Flat for 25 years” is accurate for the window shown but hides that the window itself was cherry-picked.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="reflection">
+        <h2>Final Reflection</h2>
+
+        <p>
+          I'm leaning toward the FOR side, but I'm not completely convinced by it. Disaster counts have increased a lot since 1980, so there's a real trend here. But both sides present the data in ways that support their arguments. FOR makes the increase look more dramatic, while AGAINST focuses on years where the numbers barely change. I find AGAINST more misleading because leaving out the earlier rise gives a very different picture of the overall trend. Overall, I think the FOR side has the stronger argument because it captures the longer-term increase. But its charts make that increase look more dramatic than they need to. The cumulative total and truncated y-axis are the main issues.
+        </p>
+        <p>
+          What surprised me most was that every trick used real, correctly-sourced numbers: nothing was fabricated. That’s what made this hard: spotting a lie is easy, spotting a true number in a misleading frame is not, especially when the frame (axis range, time window, title) looks like an ordinary design choice.
+        </p>
+        <p>
+          I’d now define ethical visualization as one where every choice that could change the reader’s conclusion is either neutral or disclosed, so a skeptical reader could reconstruct the other side from the chart itself. The line between acceptable persuasion and misleading design is recoverability: a visible, labeled axis start is persuasive but honest; an unlabeled one relies on readers not checking. A metric swap is fine as a complementary view but misleading when presented as answering the same question without saying so. By that standard, FOR’s tricks are more defensible: they’re visible in the chart itself, while AGAINST’s central trick, the 2000 cutoff, is invisible unless you already know the full history.
+        </p>
+      </section>
+    </main>
+    <script>
+      const select = document.querySelector('.theme select');
+      select.value = document.documentElement.style.colorScheme || 'light';
+      select.addEventListener('input', (event) => {
+        document.documentElement.style.colorScheme = event.target.value;
+        try {
+          localStorage.colorScheme = event.target.value;
+        } catch (e) {}
+      });
+    </script>
+  </body>
+</html>
