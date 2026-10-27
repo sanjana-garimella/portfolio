@@ -1,0 +1,93 @@
+[
+  {
+    "title": "GridGreen",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "A static analyzer that estimates the CO2, GPU-hours and kWh of a training script, then recommends greener model swaps and low-carbon scheduling windows. Won the DataHacks 2026 Cloud Track."
+  },
+  {
+    "title": "Doppelgamer",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "An LLM inference benchmarking framework that plays seeded multi-turn games against HuggingFace and vLLM engines, tracking TTFT, TPOT and KV-cache growth."
+  },
+  {
+    "title": "MediRare",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "A multimodal misdiagnosis-detection pipeline for rare autoimmune diseases, combining clinical NLP, figure classification and a knowledge graph."
+  },
+  {
+    "title": "MediDB",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "A clinical decision-support system built on four databases: PostgreSQL for EHR data, a Neo4j drug-interaction graph, Qdrant semantic search over FAERS adverse-event reports, and a MongoDB audit trail."
+  },
+  {
+    "title": "NYC Taxi Big Data Pipeline",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "A distributed pipeline that turns 3.4 billion NYC taxi records into a 2.9M-row feature table with PyArrow, Dask and Spark."
+  },
+  {
+    "title": "DSC 209R Project 1: Expository Visualization",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "Coming soon."
+  },
+  {
+    "title": "DSC 209R Project 2: Deceptive Visualization",
+    "year": "2026",
+    "image": "projects/project2/final_for.png",
+    "url": "projects/project2/",
+    "description": "Two opposing visualizations of the same IMF climate disaster data."
+  },
+  {
+    "title": "DSC 209R Project 3: Interactive Visualization",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "Coming soon."
+  },
+  {
+    "title": "DSC 209R Final Project",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "Coming soon."
+  },
+  {
+    "title": "Lab 5: Categorical Data With D3",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "Coming soon."
+  },
+  {
+    "title": "Lab 6: Quantitative Data With D3",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "Coming soon."
+  },
+  {
+    "title": "Lab 7: Geospatial Visualization",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "Coming soon."
+  },
+  {
+    "title": "Lab 8: Animation",
+    "year": "2026",
+    "image": "images/empty.svg",
+    "description": "Coming soon."
+  },
+  {
+    "title": "IBM Project (placeholder)",
+    "year": "2024",
+    "image": "images/empty.svg",
+    "description": "Placeholder for a project from my time as a software developer at IBM."
+  },
+  {
+    "title": "B.Tech Project (placeholder)",
+    "year": "2023",
+    "image": "images/empty.svg",
+    "description": "Placeholder for a project from my B.Tech in Computer Science."
+  }
+]

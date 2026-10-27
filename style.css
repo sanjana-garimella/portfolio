@@ -112,12 +112,32 @@ form {
     grid-row: span 3;
   }
 
-  h2 {
+  h2,
+  h3 {
     margin: 0;
   }
 
   p {
     margin: 0;
+  }
+}
+
+/* Lab 4: GitHub stats on the home page */
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 0 2em;
+
+  dt {
+    grid-row: 1;
+    font-size: 0.9em;
+    color: oklch(50% 2% 250);
+  }
+
+  dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 200%;
   }
 }
 
