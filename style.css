@@ -120,6 +120,93 @@ form {
   p {
     margin: 0;
   }
+
+  /* Lab 5, Step 0.1: project year under the description */
+  .project-year {
+    margin-top: 0.3em;
+    color: oklch(55% 2% 250);
+    font-family: Baskerville, serif;
+    font-variant-numeric: oldstyle-nums;
+  }
+}
+
+/* Lab 5: pie chart and legend side by side */
+.container {
+  display: flex;
+  flex-wrap: wrap; /* legend drops below the chart on narrow screens */
+  align-items: center;
+  gap: 2em;
+  margin-block: 2em;
+}
+
+#projects-pie-plot {
+  flex: 0 1 20em;
+  max-width: 20em;
+  overflow: visible;
+
+  path {
+    transition: 300ms;
+    cursor: pointer;
+    outline: none;
+  }
+
+  /* Step 5.1: fade the other wedges when one is hovered */
+  &:has(path:hover) {
+    path:not(:hover) {
+      opacity: 0.5;
+    }
+  }
+
+  path:focus-visible {
+    stroke: canvastext;
+    stroke-width: 1;
+  }
+}
+
+.legend {
+  flex: 1;
+  min-width: 12em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 1em;
+  margin: 0;
+  padding: 1em;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5em;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.swatch {
+  display: inline-block;
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--color);
+}
+
+/* Step 5.2: selected wedge and legend item. Green, so it doesn't look
+   like any of the Tableau colors used for the years. */
+.selected {
+  --color: oklch(65% 0.2 145) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+.searchBar {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+  margin-bottom: 2em;
 }
 
 /* Lab 4: GitHub stats on the home page */

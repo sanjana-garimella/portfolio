@@ -152,10 +152,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       : title;
     const image = sitePath(project.image ?? 'images/empty.svg');
 
+    // Lab 5, Step 0.1: description and year share one div so they stay
+    // in the same grid cell instead of overlapping
     article.innerHTML = `
       <${headingLevel}>${heading}</${headingLevel}>
       <img src="${image}" alt="${title}">
-      <p>${project.description ?? ''}</p>
+      <div>
+        <p>${project.description ?? ''}</p>
+        <p class="project-year">c. ${project.year ?? ''}</p>
+      </div>
     `;
 
     containerElement.appendChild(article);

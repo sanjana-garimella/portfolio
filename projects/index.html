@@ -11,6 +11,19 @@
   <body>
     <h1 class="projects-title">Projects</h1>
 
+    <!-- Lab 5: pie chart of projects per year, with its legend on the right -->
+    <div class="container">
+      <svg id="projects-pie-plot" viewBox="-50 -50 100 100" role="group" aria-label="Pie chart of projects per year"></svg>
+      <ul class="legend"></ul>
+    </div>
+
+    <input
+      class="searchBar"
+      type="search"
+      aria-label="Search projects"
+      placeholder="🔍 Search projects…"
+    />
+
     <div class="projects">
       <!-- Projects are loaded from lib/projects.json by projects.js -->
     </div>
