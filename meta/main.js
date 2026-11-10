@@ -163,7 +163,11 @@ function renderScatterPlot(data, commits) {
     });
 
   // Step 2.2: axes, with times formatted like 08:00
-  const xAxis = d3.axisBottom(xScale);
+  // One tick per week with one date format, so labels don't overlap
+  const xAxis = d3
+    .axisBottom(xScale)
+    .ticks(d3.timeWeek.every(1))
+    .tickFormat(d3.timeFormat('%b %d'));
   const yAxis = d3
     .axisLeft(yScale)
     .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
@@ -210,8 +214,16 @@ function updateTooltipVisibility(isVisible) {
 
 function updateTooltipPosition(event) {
   const tooltip = document.getElementById('commit-tooltip');
-  tooltip.style.left = `${event.clientX}px`;
-  tooltip.style.top = `${event.clientY}px`;
+  const { width, height } = tooltip.getBoundingClientRect();
+  let x = event.clientX;
+  let y = event.clientY;
+
+  // Show it on the other side of the cursor if it would go off-screen
+  if (x + width > window.innerWidth) x -= width;
+  if (y + height > window.innerHeight) y -= height;
+
+  tooltip.style.left = `${Math.max(0, x)}px`;
+  tooltip.style.top = `${Math.max(0, y)}px`;
 }
 
 // Step 5: brushing
