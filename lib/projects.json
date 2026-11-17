@@ -1,5 +1,12 @@
 [
   {
+    "title": "Bikewatching",
+    "year": "2026",
+    "image": "images/bikewatching.jpg",
+    "url": "https://sanjana-garimella.github.io/bikewatching/",
+    "description": "An interactive Mapbox map of Bluebikes traffic in Boston and Cambridge in March 2024. Circle size shows trips per station, color shows whether more rides start or end there, and a time slider filters about 260,000 rides by time of day."
+  },
+  {
     "title": "GridGreen",
     "year": "2026",
     "image": "images/empty.svg",
