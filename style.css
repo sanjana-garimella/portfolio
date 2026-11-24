@@ -391,9 +391,15 @@ dl.info[hidden]:not(:hover, :focus-within) {
 }
 
 #chart circle {
-  transition: 200ms;
+  /* Lab 8 Step 1.4: dots slide when the x axis changes, and new dots grow
+     in, bigger ones more slowly (--r is the radius, set in main.js) */
+  transition: all 200ms, r calc(var(--r) * 100ms);
   transform-origin: center;
   transform-box: fill-box;
+
+  @starting-style {
+    r: 0;
+  }
 }
 
 #chart circle:hover {
@@ -417,4 +423,98 @@ dl.info[hidden]:not(:hover, :focus-within) {
 
 #chart circle.selected {
   fill: #ff6b6b;
+}
+
+/* Lab 8 Step 1.1: slider label on one line, with the time pushed right */
+#time-filter {
+  display: flex;
+  margin-bottom: 1em;
+
+  label {
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+  }
+
+  input {
+    flex: 1;
+  }
+
+  time {
+    margin-left: auto;
+  }
+}
+
+/* Lab 8 Step 2: unit visualization of lines per file */
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+
+    small {
+      display: block;
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
+  }
+
+  dd {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    align-content: start;
+    gap: 0.15em;
+    padding-top: 0.6em;
+    margin-left: 0;
+  }
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+}
+
+/* Lab 8 Step 3.1: commit text on the left, chart stays in view on the right */
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+/* Enough space between commits that only one is in the middle at a time */
+#scatter-story .step {
+  padding-bottom: 50vh;
+}
+
+#scatter-story .step:last-child {
+  padding-bottom: 10vh;
 }

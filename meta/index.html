@@ -16,17 +16,35 @@
       with <a href="https://www.npmjs.com/package/elocuent">elocuent</a>.
     </p>
 
+    <!-- Lab 8 Step 1.1: slider that picks the latest commit time to show -->
+    <div id="time-filter">
+      <label>
+        Show commits until:
+        <input type="range" id="commit-progress" min="0" max="100" value="100" />
+        <time id="commit-time"></time>
+      </label>
+    </div>
+
     <!-- Step 1.3: summary stats -->
     <h2>Summary</h2>
     <div id="stats"></div>
 
-    <!-- Step 2: scatterplot -->
+    <!-- Lab 8 Step 3.1: commit text on the left, sticky scatterplot on the right -->
     <h2>Commits by time of day</h2>
-    <div id="chart"></div>
+    <div id="scrolly-1">
+      <div id="scatter-story"></div>
+      <div id="scatter-plot">
+        <div id="chart"></div>
 
-    <!-- Step 5.5 and 5.6: info about the brushed commits -->
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
+        <!-- Step 5.5 and 5.6: info about the brushed commits -->
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
+      </div>
+    </div>
+
+    <!-- Lab 8 Step 2: one dot per line of code, grouped by file -->
+    <h2>Lines of code by file</h2>
+    <dl id="files"></dl>
 
     <!-- Step 3: tooltip, hidden until a dot is hovered -->
     <dl id="commit-tooltip" class="info tooltip" hidden>
@@ -38,8 +56,9 @@
       <dt>Date</dt>
       <dd id="commit-date"></dd>
 
+      <!-- Renamed from commit-time, which the slider's <time> now uses -->
       <dt>Time</dt>
-      <dd id="commit-time"></dd>
+      <dd id="commit-tooltip-time"></dd>
 
       <dt>Author</dt>
       <dd id="commit-author"></dd>
